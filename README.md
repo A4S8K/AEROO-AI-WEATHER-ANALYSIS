@@ -7,6 +7,11 @@ we are team TOLEBI DARYN and we will win this competition
 
 
 №2____The code:
+1.Кодтын бәрін көшіруге ұсыныс беремін немесе кодтын файлын жүктеп алыныздар
+2.WIN+R батырмасын басып іздеу жолына cmd деп жазыныздар
+3.команда терезесі ашылған кезде мына команданы жазыныз:stremlit run weather_ai_4.py , себебі F5 бұл жерде істемейді сол себепті команданы енгізуге ұсыныс береміз
+4.сайт ашылған кезде іздеу жоланы керек қаланы,ауылды жазыныз
+
 [weather_ai_4.py](https://github.com/user-attachments/files/25122231/weather_ai_4.py)
 import streamlit as st
 import requests
