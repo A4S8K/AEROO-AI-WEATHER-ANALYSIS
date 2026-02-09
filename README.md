@@ -1,5 +1,5 @@
 # AEROO-AI-WEATHER-ANALYSIS
-we are team TOLEBI DARYN and we will win this competition
+we are team TOBELI DARYN and we will win this competition
 
 
 №1____The Documentation:
