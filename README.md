@@ -11,13 +11,12 @@ we are team TOBELI DARYN and we will win this competition
 2.WIN+R батырмасын басып іздеу жолына cmd деп жазыныздар
 3.команда терезесі ашылған кезде мына команданы жазыныз:streamlit run weather_ai_4.py , себебі F5 бұл жерде істемейді сол себепті команданы енгізуге ұсыныс береміз
 4.сайт ашылған кезде іздеу жоланы керек қаланы,ауылды жазыныз
-
-[weather_ai_4.py](https://github.com/user-attachments/files/25122231/weather_ai_4.py)
+[weather_ai_4.py](https://github.com/user-attachments/files/25205635/weather_ai_4.py)
 import streamlit as st
 import requests
-#streamlit run weather_ai_4.py команда экранына енгізу керек
+#streamlit run weather_ai_4.py
 # =========================================================
-# 🧭 ҚОСЫМША ФУНКЦИЯЛАР (Жел бағыты)
+# 🧭 ҚОСЫМША ФУНКЦИЯЛАР
 # =========================================================
 def get_wind_direction(degrees):
     directions = ['⬆️ С', '↗️ СШ', '➡️ Ш', '↘️ ОШ', '⬇️ О', '↙️ ОБ', '⬅️ Б', '↖️ СБ']
@@ -25,125 +24,101 @@ def get_wind_direction(degrees):
     return directions[index]
 
 # =========================================================
-# 🧠 ЖИ-МОНИТОРИНГ ЖӘНЕ ТАБИҒИ АПАТТАРДЫ БОЛЖАУ
+# 🧠 ЖИ-ТАЛДАУ (АВТОМАТТЫ ЛОГИКА)
 # =========================================================
-def disaster_ai_analysis(current, daily):
+def ai_weather_analysis(current):
     alerts = []
-    recommendations = []
-    danger_level = "Қалыпты"
+    recs = []
     
-    # Деректерді алу
-    wind = current.get('wind_speed_10m', 0)
-    gusts = current.get('wind_gusts_10m', 0)
     temp = current.get('temperature_2m', 0)
+    wind = current.get('wind_speed_10m', 0)
     precip = current.get('precipitation', 0)
-    humidity = current.get('relative_humidity_2m', 0)
-    uv = daily.get('uv_index_max', [0])[0]
+    hum = current.get('relative_humidity_2m', 0)
 
-    # 1. СУ ТАСҚЫНЫ ҚАУПІ (Жауын-шашын анализі)
-    if precip > 10:
-        alerts.append("🌊 **ҚАУІП:** Нөсер жауын! Су тасқыны қаупі жоғары.")
-        recommendations.append("📢 Төмен аймақтардан аулақ болыңыз, эвакуация жоспарын дайындаңыз.")
-        danger_level = "Жоғары"
+    # Температура талдауы
+    if temp > 35:
+        alerts.append(f"🔥 **Аномальды ыстық:** {temp}°C. Күн өту қаупі бар.")
+        recs.append("Көбірек су ішіп, көлеңкеде болыңыз.")
+    elif temp < -20:
+        alerts.append(f"🥶 **Қатты аяз:** {temp}°C. Үсік шалу қаупі.")
+        recs.append("Жылы киініңіз, далада ұзақ тұрмаңыз.")
 
-    # 2. ӨРТ ҚАУПІ (Ыстық + Құрғақшылық + Жел)
-    if temp > 30 and humidity < 30 and wind > 15:
-        alerts.append("🔥 **ҚАУІП:** Орман өрті қаупі өте жоғары (Құрғақ әрі желді).")
-        recommendations.append("🚫 Табиғатта от жағуға қатаң тыйым салынады!")
-        danger_level = "Көтеріңкі"
+    # Жел мен Жауын талдауы
+    if wind > 40:
+        alerts.append(f"🌬️ **Күшті жел:** {wind} км/сағ. Дауылды ескерту!")
+        recs.append("Ағаштар мен билбордтардан алыс жүріңіз.")
+    
+    if precip > 5:
+        alerts.append(f"🌧️ **Жауын-шашын:** Жаңбыр/Қар жауып тұр.")
+        if temp < 2 and temp > -2:
+            alerts.append("⛸️ **Көктайғақ қаупі:** Жолдар тайғақ болуы мүмкін.")
 
-    # 3. ДАУЫЛ ЖӘНЕ ҚИРАТУШЫ ЖЕЛ
-    if gusts > 70:
-        alerts.append(f"🌪️ **АПАТТЫ ЖЕЛ:** {gusts} км/сағ жылдамдықпен ұруы мүмкін!")
-        recommendations.append("🏠 Үйден шықпаңыз, терезелерден алыс тұрыңыз.")
-        danger_level = "Экстремалды"
-    elif wind > 40:
-        alerts.append("🚩 **КҮШТІ ДАУЫЛ:** Ғимараттар мен ағаштарға зақым келуі мүмкін.")
-        danger_level = "Жоғары"
-
-    # 4. АНОМАЛЬДЫ ЫСТЫҚ/СУЫҚ
-    if temp > 40:
-        alerts.append("🥵 **ЭКСТРЕМАЛДЫ ЫСТЫҚ:** Күн өту және жүрек-қан тамырларына салмақ.")
-    elif temp < -30:
-        alerts.append("🥶 **АНОМАЛЬДЫ СУЫҚ:** Гипотермия қаупі жоғары.")
-
+    # Қалыпты жағдай
     if not alerts:
-        alerts.append("✅ Қазіргі уақытта апаттық қауіп тіркелген жоқ.")
-        recommendations.append("🌤️ Күнделікті істерді жалғастыра беріңіз.")
-
-    return alerts, recommendations, danger_level
+        alerts.append("✅ Ауа райы тұрақты, қауіпті құбылыстар байқалмайды.")
+        recs.append("Күнделікті жоспарыңызды жалғастыра беріңіз.")
+        
+    return alerts, recs
 
 # =========================================================
-# 📡 ДЕРЕКТЕРДІ АЛУ (Open-Meteo API)
+# 📡 ДЕРЕКТЕРДІ АЛУ
 # =========================================================
-def get_weather_data(city):
+def get_weather(city):
     try:
         geo_url = f"https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1&language=ru&format=json"
-        geo_res = requests.get(geo_url).json()
-        if not geo_res.get('results'): return None
-        loc = geo_res['results'][0]
+        res = requests.get(geo_url).json()
+        if not res.get('results'): return None
+        loc = res['results'][0]
         
-        weather_url = (
-            f"https://api.open-meteo.com/v1/forecast?latitude={loc['latitude']}&longitude={loc['longitude']}"
-            f"&current=temperature_2m,relative_humidity_2m,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m,precipitation"
-            f"&daily=uv_index_max,precipitation_sum&timezone=auto"
-        )
-        w_res = requests.get(weather_url).json()
-        w_res.update({'full_name': f"{loc.get('name')}, {loc.get('country')}", 'lat': loc['latitude'], 'lon': loc['longitude']})
-        return w_res
+        w_url = f"https://api.open-meteo.com/v1/forecast?latitude={loc['latitude']}&longitude={loc['longitude']}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,precipitation&timezone=auto"
+        weather = requests.get(w_url).json()
+        weather.update({'name': f"{loc['name']}, {loc['country']}", 'lat': loc['latitude'], 'lon': loc['longitude']})
+        return weather
     except: return None
 
 # =========================================================
 # 🖥️ ИНТЕРФЕЙС
 # =========================================================
-st.set_page_config(page_title="Guardian AI - Disaster Monitor", layout="wide")
+st.set_page_config(page_title="Guardian AI", layout="wide")
+st.title("🛡️ Guardian AI: Метео-талдау")
 
-st.title("🛡️ Guardian AI: Табиғи апаттарды болжау жүйесі")
-st.markdown("---")
+with st.sidebar:
+    city_name = st.text_input("📍 Қаланы енгізіңіз:", "Astana")
+    start = st.button("АНАЛИЗ ЖАСАУ")
 
-city = st.text_input("Бақылау аймағын (қала) енгізіңіз:", "Astana")
-
-if st.button("СЕРУЕНДІ БАСТАУ (AI SCAN)"):
-    data = get_weather_data(city)
-    
+if start:
+    data = get_weather(city_name)
     if data:
         c = data['current']
-        d = data['daily']
-        alerts, recs, level = disaster_ai_analysis(c, d)
-
-        # Статусты көрсету
-        st.subheader(f"📍 Нысан: {data['full_name']}")
+        alerts, recs = ai_weather_analysis(c)
         
-        # Қауіп деңгейіне қарай түс таңдау
-        status_colors = {"Қалыпты": "green", "Көтеріңкі": "blue", "Жоғары": "orange", "Экстремалды": "red"}
-        st.markdown(f"### Қауіп деңгейі: :{status_colors[level]}[{level}]")
+        st.header(f"📍 {data['name']}")
+        
+        # Метрикалар
+        col = st.columns(4)
+        col[0].metric("🌡️ Температура", f"{c['temperature_2m']}°C")
+        col[1].metric("🌬️ Жел", f"{c['wind_speed_10m']} км/с")
+        col[2].metric("🧭 Бағыты", get_wind_direction(c['wind_direction_10m']))
+        col[3].metric("💧 Ылғалдылық", f"{c['relative_humidity_2m']}%")
 
-        # Негізгі көрсеткіштер
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Температура", f"{c['temperature_2m']}°C")
-        col2.metric("Жел жылдамдығы", f"{c['wind_speed_10m']} км/сағ")
-        col3.metric("Ылғалдылық", f"{c['relative_humidity_2m']}%")
-        col4.metric("Жауын-шашын", f"{c['precipitation']} мм")
-
-        # ЖИ Аналитика бөлімі
         st.divider()
-        a_col, r_col = st.columns(2)
-        with a_col:
-            st.error("⚠️ **Табылған қауіп-қатерлер:**")
-            for a in alerts: st.write(a)
-        with r_col:
-            st.success("💡 **Қорғану шаралары (ЖИ ұсынысы):**")
-            for r in recs: st.write(r)
+        
+        # ЖИ Анализ бөлімі
+        c1, c2 = st.columns(2)
+        with c1:
+            st.subheader("🔎 ЖИ Талдау:")
+            for a in alerts: st.info(a)
+        with c2:
+            st.subheader("💡 Ұсыныстар:")
+            for r in recs: st.write(f"- {r}")
 
-        # Карта (Windy - Апаттарды визуалды көру үшін)
         st.divider()
-        st.write("### 🌍 Аймақтың спутниктік картасы")
-        windy_url = f"https://www.windy.com/embed2.html?lat={data['lat']}&lon={data['lon']}&zoom=6&overlay=capalerts&product=capalerts"
-        st.components.v1.iframe(windy_url, height=500)
+        st.subheader("🌍 Карта")
+        st.components.v1.iframe(f"https://www.windy.com/embed2.html?lat={data['lat']}&lon={data['lon']}&zoom=5", height=400)
     else:
-        st.error("Деректерді алу мүмкін болмады. Қала атын тексеріңіз.")
+        st.error("Қала табылмады.")
 
-st.sidebar.info("Бұл жүйе Open-Meteo деректерін пайдалана отырып, ЖИ алгоритмдері арқылы табиғи апаттардың алдын алуға көмектеседі.")
+
 
 
 №3____The pitch-deck:
