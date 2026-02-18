@@ -12,6 +12,8 @@ we are team TOBELI DARYN and we will win this competition
 3.команда терезесі ашылған кезде мына команданы жазыныз:streamlit run weather_ai_4.py , себебі F5 бұл жерде істемейді сол себепті команданы енгізуге ұсыныс береміз
 4.сайт ашылған кезде іздеу жоланы керек қаланы,ауылды жазыныз
 [weather_ai_4.py](https://github.com/user-attachments/files/25205635/weather_ai_4.py)
+
+
 import streamlit as st
 import requests
 #streamlit run weather_ai_4.py
