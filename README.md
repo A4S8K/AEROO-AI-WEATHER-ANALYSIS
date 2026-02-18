@@ -1,4 +1,4 @@
-[weather_ai_5.py](https://github.com/user-attachments/files/25385819/weather_ai_5.py)[weather_ai_5.py](https://github.com/user-attachments/files/25385803/weather_ai_5.py)[weather_ai_5.py](https://github.com/user-attachments/files/25385786/weather_ai_5.py)# AEROO-AI-WEATHER-ANALYSIS
+# AEROO-AI-WEATHER-ANALYSIS
 we are team TOBELI DARYN and we will win this competition
 
 
@@ -11,7 +11,7 @@ we are team TOBELI DARYN and we will win this competition
 2.WIN+R батырмасын басып іздеу жолына cmd деп жазыныздар
 3.команда терезесі ашылған кезде мына команданы жазыныз:streamlit run weather_ai_5.py , себебі F5 бұл жерде істемейді сол себепті команданы енгізуге ұсыныс береміз
 4.сайт ашылған кезде іздеу жоланы керек қаланы,ауылды жазыныз
-[weather_ai_5.py]
+[weather_ai_5.py](https://github.com/user-attachments/files/25385803/weather_ai_5.py)
 
 import stimport streamlit as st
 import requests
