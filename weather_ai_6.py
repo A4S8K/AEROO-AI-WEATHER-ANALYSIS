@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 from openai import OpenAI
-
+#https://aeroo-ai-weather-analysis-ddmrfgcjjujm6dsq7atsgf.streamlit.app/ сайтқа өтетін сілтеме
 # =====================================================
 # CONFIG
 # =====================================================
@@ -187,3 +187,4 @@ if st.session_state.selected_location and st.session_state.weather_data:
     st.subheader(t["windy_map"])
     map_type = st.selectbox(t["map_layer"], ["rain","wind","clouds"], key="map_layer")
     st.components.v1.iframe(f"https://www.windy.com/embed2.html?lat={lat}&lon={lon}&zoom=7&overlay={map_type}", height=500)
+
