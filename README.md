@@ -11,9 +11,9 @@
 [3]Жәнеде бұл кодқа АПИ КЕЙ керек оны былай орнатады:setx OPENAI_API_KEY "Апи кейді сайттан алыныз"(егер код жұмыс жасамаса мына сайттан АПИ-КЕЙ көшіріп алыныз:https://platform.openai.com/api-keys)
 Егер сізде пайтоннын pip функциясы болмаса мына сілтеме арқылы өтіп орнатыныз:https://www.youtube.com/watch?v=hqLN2vKpq7Q
 3.барлығын жасап болғансон кодты көшіріп алыныз
-4.қайттан команда жолын ашыныз және іздеу жолына мына команданы терініз: streamlit run weather_ai_6.py
+4.қайттан команда жолын ашыныз және іздеу жолына мына команданы терініз: streamlit run app.py
 мыне код:
-[weather_ai_6.py](https://github.com/user-attachments/files/25480264/weather_ai_6.py)
+[app.py](https://github.com/user-attachments/files/25480264/app.py)
 import streamlit as st
 import requests
 import pandas as pd
