@@ -207,3 +207,13 @@ if st.session_state.selected_location and st.session_state.weather_data:
 №3________MVP:
 
 №4________Pitch-deck
+
+
+
+
+
+[requirements.txt](https://github.com/user-attachments/files/25515041/requirements.txt)
+streamlit
+requests
+pandas
+openai
