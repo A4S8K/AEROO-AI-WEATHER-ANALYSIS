@@ -3,7 +3,7 @@
 
 №1________Құжаттама
 
-№2________Жұмыс коды жіне инструкциясы:
+№2________Жұмыс коды және инструкциясы:
 БАСТЫ:егер сіз тез кодты тексергініз келсе мына сайтпен өтініз:https://aeroo-ai-weather-analysis-ddmrfgcjjujm6dsq7atsgf.streamlit.app/
 
 1.Win+R батырмасын басып іздеу жолына cmd деп жазамыз
@@ -21,8 +21,10 @@
 3.барлығын жасап болғансон кодты көшіріп алыныз
 
 4.қайттан команда жолын ашыныз және іздеу жолына мына команданы терініз: streamlit run app.py
-мыне код:
-[app.py](https://github.com/user-attachments/files/25480264/app.py)
+міне код:[weather_ai_6.py](https://github.com/user-attachments/files/25539109/weather_ai_6.py)
+
+
+
 
 №3________MVP:
 
