@@ -1,7 +1,8 @@
 # AEROO-AI-WEATHER-ANALYSIS
 Команда Төлеби Дарын
 
-№1________Құжаттама:[aeroobest.docx](https://github.com/user-attachments/files/25541912/aeroobest.docx)
+№1________Құжаттама:[aerooTOLEBI_DARYN.docx](https://github.com/user-attachments/files/25542222/aerooTOLEBI_DARYN.docx)
+
 
 №2________Жұмыс коды және инструкциясы:
 БАСТЫ:егер сіз тез кодты тексергініз келсе мына сайтпен өтініз:https://aeroo-ai-weather-analysis-ddmrfgcjjujm6dsq7atsgf.streamlit.app/
