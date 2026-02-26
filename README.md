@@ -69,7 +69,6 @@ MVP (AI ұсыныстарымен)
 
 _______________________________________
 
-№4________Pitch-deck:[Жер бетінде болатын табиғи апаттарды ЖИ арқылы болжап беру.pptx](https://github.com/user-attachments/files/25570687/default.pptx)
+№4________Pitch-deck:PPTX:[Жер бетінде болатын табиғи апаттарды ЖИ арқылы болжап беру.pptx](https://github.com/user-attachments/files/25571181/default.pptx)
 
-
-
+PDF:[Жер бетінде болатын табиғи апаттарды ЖИ арқылы болжап беру.pdf](https://github.com/user-attachments/files/25571178/default.pdf)
