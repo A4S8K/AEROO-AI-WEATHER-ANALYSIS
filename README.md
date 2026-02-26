@@ -1,7 +1,7 @@
 # AEROO-AI-WEATHER-ANALYSIS
 Команда Төлеби Дарын
 
-№1________Құжаттама:[aerooTOLEBI_DARYN.docx](https://github.com/user-attachments/files/25542222/aerooTOLEBI_DARYN.docx)
+№1________Құжаттама:[aeroo _Tolebi_Daryn.docx](https://github.com/user-attachments/files/25570694/aeroo._Tolebi_Daryn.docx)
 
 _______________________________________
 
@@ -69,6 +69,7 @@ MVP (AI ұсыныстарымен)
 
 _______________________________________
 
-№4________Pitch-deck:
-[Жер бетінде болатын табиғи апаттарды ЖИ арқылы болжап беру.pptx](https://github.com/user-attachments/files/25564278/default.pptx)
+№4________Pitch-deck:[Жер бетінде болатын табиғи апаттарды ЖИ арқылы болжап беру.pptx](https://github.com/user-attachments/files/25570687/default.pptx)
+
+
 
